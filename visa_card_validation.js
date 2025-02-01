@@ -12,23 +12,13 @@ function validateVisaCard(cardNumber){
     if (!/^4/.test(cleanNumber)) {
         return {error: `Visa cards must start with 4`};
     }
-    const cardTypes = {
-        "4026": "Visa Electron",
-        "417500": "Visa Electron",
-        "4508": "Visa Electron",
-        "4844": "Visa Electron",
-        "4913": "Visa Electron",
-        "4917": "Visa Electron",
-        "4903": "Visa Debit"
-      };
-
-      let cardType = "Visa Credit";
-        for (const prefix in cardTypes) {
-            if (cleanNumber.startsWith(prefix)) {
-                cardType = cardTypes[prefix];
-                break;
-            }
-        }
+    let cardType = "";
+    
+    if (/^4508/.test(cleanNumber)) {
+        cardType = "Visa Electron";
+    }   else {
+        cardType = "Visa Credit";
+    }
 
     let sum = 0;
     let isEvenPosition = false;

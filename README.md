@@ -16,3 +16,6 @@ The above regular expression means; the first number must be a digit, the digit 
 
 The above means Visa credit card must start with a 4.
 
+(/^4508/.test(cleanNumber))
+
+The above means the first four digit must start with 4508.
