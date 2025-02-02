@@ -1,8 +1,8 @@
 function validateVisaCard(cardNumber){
     const cleanNumber = cardNumber.replace(/[-/s]/g, '');
-
+    
     if (!/^\d+$/.test(cleanNumber)) {
-        return { error: `This card is invalid`};
+        return { error: `This card is invalid, it must begin with a number`};
     }
 
     if (!/^\d{13}$|^\d{16}$/.test(cleanNumber)) {
@@ -12,8 +12,9 @@ function validateVisaCard(cardNumber){
     if (!/^4/.test(cleanNumber)) {
         return {error: `Visa cards must start with 4`};
     }
+
+
     let cardType = "";
-    
     if (/^4508/.test(cleanNumber)) {
         cardType = "Visa Electron";
     }   else {
@@ -48,7 +49,7 @@ function sumDigits(n) {
   }
   
  
-
+  
   console.log(validateVisaCard("ER32-9678-2345-6788"));
   console.log(validateVisaCard("4532-9678-2345-678"));
   console.log(validateVisaCard("5532-9678-2345-6788"));
